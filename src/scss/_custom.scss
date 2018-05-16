@@ -1,0 +1,89 @@
+
+
+.sidebar .nav-link.active, .sidebar .navbar .active.dropdown-toggle, .navbar .sidebar .active.dropdown-toggle{
+    
+    background-color: red;
+}
+
+.edit-btn { color:red;}
+ 
+.width-100{ width: 100%;}
+
+.card-layout { margin:20px 0px ; box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);padding: 20px;background-color: #ffffff; }
+.m-t-2{ margin-top: 2em;}
+.card_label{ font-size: 13px;font-weight:500;}
+.no-padding{padding: 0px;}
+.update-btn { 
+   
+    padding: 4px 11px;
+    font-size: 16px;
+        width: 30%;
+   
+    font-size: 16px;
+}
+.m-t-5px{ margin-top: 5px;}
+.card-layout:hover{box-shadow: none; }
+.model_input{ width: 42%; padding: 5px;}
+.dropdown_tabs{     width: 86px;
+    padding: 2px;}
+.star_red{ color:red;}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    color:skyblue;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+
+
+.buttondemoBasicUsage section {
+  background: #f7f7f7;
+  border-radius: 3px;
+  text-align: center;
+  margin: 1em;
+  position: relative !important;
+  padding-bottom: 10px; }
+
+.buttondemoBasicUsage md-content {
+  margin-right: 7px; }
+
+.buttondemoBasicUsage section .md-button {
+  margin-top: 16px;
+  margin-bottom: 16px; }
+
+.buttondemoBasicUsage .label {
+  position: absolute;
+  bottom: 5px;
+  left: 7px;
+  font-size: 14px;
+  opacity: 0.54; }

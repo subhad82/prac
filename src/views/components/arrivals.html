@@ -1,0 +1,108 @@
+<div ng-controller="arrivals">
+
+ 
+<div class="animated fadeIn">
+  <div class="row">
+
+ 
+
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i>  
+        </div>
+        <div class="card-body">
+            <div class="row">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6 text-right">
+            <span><input ng-model="search"></span> <span><button>Search</button></span>
+            
+            </div>
+                <hr>
+            </div>
+           
+          <table class="table table-striped">
+            <thead style="background-color:grey;color:#fff;">
+              <tr>
+                 
+                <th>Booking Type</th>
+                <th>Booking Reference</th>
+                <th>Name</th>
+                <th>Date-Time </th>
+                <th>Registration</th>
+                <th>PAX</th>
+                <th>Inbound</th>
+                <th>Payment</th>
+                <th>Amount</th>
+                <th>Zone</th>
+                <th>Label</th>
+              
+               
+              
+              </tr>
+            </thead>
+            <tbody>
+         <tr ng-repeat="x in arrivalsarray | filter :search ">
+             
+       
+             <td><a data-toggle="modal" data-target="#exampleModal"  ng-click="getinfo(x)"><i class="fa fa-edit fa-sm edit-btn"></i></a>{{x.customerid}}</td>
+             <td>{{x.firstname}}&nbsp;{{x.lastname}}</td>
+             <td>{{x.arrivaldate}}{{x.arrivaltime}}</td>
+             <td>{{x.bookingid}}</td>
+             <td>{{x.pax}}</td>
+             <td>{{x.inflight}}</td>
+             <td>{{x.paymentstatus}}</td>
+             <td>{{x.totalpaid}}</td>
+             <td>{{x.zone}}</td>
+             <td>label</td>
+             <td>{{x.checkedin}}</td>
+            
+             
+                
+            
+                
+                </tr>
+         
+            </tbody>
+          </table>
+       
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Customer Id :- {{studmodel.customerid}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div>Customer name :- <input ng-model="studmodel.firstname"></div>  
+          <div>customer id :- {{studmodel.customerid}}</div>
+          <div>pax :-{{studmodel.pax}}</div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+
+
+
+    

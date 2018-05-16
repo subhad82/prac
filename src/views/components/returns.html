@@ -1,0 +1,153 @@
+
+
+<div ng-controller="tableview">
+  
+
+<div class="animated fadeIn">
+    <div>
+  <div class="row card-layout" ng-repeat="y in myWelcome" data-toggle="modal" data-target="#model" onclick="openCity(event, 'London')" ng-click="update(y)">
+
+      
+      <div class="col-md-4">
+          <div class="row">
+              
+              <div class="col-md-4 col-xs-4 col-sm-4"><label class="card_label">Name: </label></div><div class="col-md-8 col-xs-8 no-padding col-sm-8">{{y.title}}&nbsp;{{y.firstname}} &nbsp;{{y.lastname}}</div>   </div>
+          <div class="row"><div class="col-md-4"><label class="card_label">Booking Ref: </label></div><div class="col-md-8 no-padding col-xs-8">{{y.confirmationid}}</div> </div>
+          <div class="row"><div class="col-md-4"><label class="card_label">Booking Type:</label> </div> <div class="col-md-8 no-padding col-xs-8">{{y.company}}</div></div>
+      </div>
+      
+     
+      <div class="col-md-4"><div class="row"> <div class="col-md-4 col-xs-4"> <label class="card_label">Registration :</label></div><div class="col-md-8 col-xs-8 no-padding"><span>{{y.regnumber}}</span></div></div><div class="row"> <div class="col-md-4 col-xs-4 "><label class="card_label">Arrival Date :</label></div>   <div class="col-md-8 col-xs-8 no-padding"> {{y.arrivaldate | date : "dd-MM-y"}}&nbsp;{{y.arrivaltime}}</div> </div>
+          
+          <div class="row"> <div class="col-md-4 col-xs-4 "><label class="card_label">Pax :</label></div>   <div class="col-md-8 col-xs-8 no-padding"> {{y.pax}}</div> </div>
+         
+      </div>
+      
+      
+      <div class="col-md-4 " >
+          <div class="row m-t-5px" ng-click="dosomething($event)" > <div class="col-md-4 col-xs-4"><label class="card_label">Checked :</label> </div><div class="col-md-8 col-xs-8 no-padding"><span class="col-md-8"><select class="dropdown_tabs" ><option>In</option><option>Out</option></select></span></div></div>
+            <div class="row m-t-5px" ng-click="dosomething($event)" > <div class="col-md-4 col-xs-4"><label class="card_label">Zone :</label> </div><div class="col-md-8 col-xs-8 no-padding"><span class="col-md-8"><select class="dropdown_tabs" ><option>A</option><option>B</option></select></span></div></div>
+      <div class="col-md-12 text-center m-t-5px"><button class="btn btn-outline-primary btn-lg update-btn" type="button" >update</button></div>
+      </div>
+      
+  </div>
+      
+</div>
+</div>
+  
+ 
+<!-- Modal -->
+<div class="modal fade" id="model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="bd-example-modal-lg">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>Booking Id :- {{updatedata.confirmationid}}</b> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Personal Details</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Booking Details</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Admin Details</button> 
+              <button class="tablinks" onclick="openCity(event, 'cancel')">Cancel Booking</button>
+              
+</div>
+
+<div id="London" class="tabcontent">
+ 
+      <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Title: <i class="star_red">*</i></label></div> <div class="col-md-9"><select><option>Mr.</option><option>Mrs.</option><option>Ms</option></select></div>
+    
+    </div>
+    <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">First Name : <i class="star_red">*</i></label></div> <div class="col-md-9"><input class="model_input" ng-model="updatedata.firstname"></div>
+    
+    </div> <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Last Name : <i class="star_red">*</i></label></div> <div class="col-md-9"><input class="model_input" ng-model="updatedata.lastname"></div>
+    
+    </div>
+    
+    <div class="row m-t-5px"><div class="col-md-3"><label class="card_label">Email : <i class="star_red">*</i></label></div><div  class="col-md-9"><input class="model_input" ng-model="updatedata.email"></div> </div>
+    <div class="row m-t-5px"><div class="col-md-3"><label class="card_label">Contact number : <i class="star_red">*</i></label></div><div class="col-md-9"><input class="model_input" ng-model="updatedata.contact"></div></div>
+    <div class="m-t-5px"><button class="m-t-5px btn-primary" data-dismiss="modal">Update</button></div>
+</div>
+
+<div id="Paris" class="tabcontent">
+<div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Arrival Date - Time : <i class="star_red">*</i></label></div> <div class="col-md-9"><span><input  class="model_input" ng-model="updatedata.arrivaldate"></span><span>&nbsp;<input  type=""  ng-model="updatedata.arrivaltime" ></span></div>
+    
+    </div>
+    <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Return Date - Time : <i class="star_red">*</i></label></div> <div class="col-md-9"><span><input type="" class="model_input" ng-model="updatedata.returndate" ></span><span>&nbsp;<input type="text"  ng-model="updatedata.returntime"></span></div>
+    
+    </div>
+   <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Pax: <i class="star_red">*</i></label></div> <div class="col-md-9"><select><option>4</option><option>5</option><option>6</option></select></div>
+    
+    </div>
+     <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Outbound Flight : </label></div> <div class="col-md-9"><span><input type="" class="model_input" ng-model="updatedata.outflight"></span></div>
+    
+    </div> 
+          <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Inbound Flight : </label></div> <div class="col-md-9"><span><input type="" class="model_input" ng-model="updatedata.inflight"></span></div>
+    
+    </div> 
+        <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Registration : </label></div> <div class="col-md-9"><span><input  class="model_input" ng-model="updatedata.regnumber"></span></div>
+    
+    </div> 
+    <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Make / Model : </label></div> <div class="col-md-9"><span><input  class="model_input" ng-model="updatedata.carmodel"></span></div>
+    
+    </div>
+    <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label"> Color : </label></div> <div class="col-md-9"><span><input  class="model_input" ng-model="updatedata.carcolor"></span></div>
+    
+    </div>
+     <div class="m-t-5px"><button class="m-t-5px btn-primary" data-dismiss="modal">Update</button></div>
+          
+</div>
+
+<div id="Tokyo" class="tabcontent">
+      <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Reference Number : </label></div> <div class="col-md-9"><span><input  class="model_input" ng-model="updatedata.regnumber"></span></div>
+    
+    </div> 
+       <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Booking Type : </label></div> <div class="col-md-9"><select class="dropdown_tabs"><option>4-APH</option><option>5</option><option>6</option></select></div>
+    
+    </div> 
+    
+        <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">HSBC Ref. Number : </label></div> <div class="col-md-9"><span><input type="number" class="model_input" ng-model="updatedata.referralid"></span></div>
+    
+    </div> 
+    <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Payment : </label></div> <div class="col-md-9"><select class="dropdown_tabs"><option>{{updatedata.paymentstatus}}</option></select></div>
+   
+    
+    </div> 
+    
+     <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Zone : </label></div> <div class="col-md-9"><select class="dropdown_tabs"><option>{{updatedata.zone}}</option></select></div>
+   
+    
+    </div> 
+    <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Checked In : </label></div> <div class="col-md-9"><select class="dropdown_tabs"><option>Yes</option><option>No</option></select></div>
+   
+    
+    </div> 
+    <div class="row m-t-5px">  <div class="col-md-3"><label class="card_label">Checked Out : </label></div> <div class="col-md-9"><select class="dropdown_tabs"><option>Yes</option><option>No</option></select></div>
+   
+    
+    </div> 
+     <div class="m-t-5px"><button class="m-t-5px btn-primary" data-dismiss="modal">Update</button></div>
+</div>   
+          <div id="cancel" class="tabcontent">
+          
+          <p class="m-t-2"><b><i class="star_red">Press the button below to cancel this booking  permently , it will be  removed  from dashboard</i></b></p>
+              
+              <div class="m-t-5px"><button class="m-t-5px btn-danger" data-dismiss="modal">Cancel Booking</button></div>
+          </div>     
+          
+      
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+
+
+
